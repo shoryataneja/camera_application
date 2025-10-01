@@ -1,7 +1,7 @@
 import { CameraView, CameraType, useCameraPermissions } from 'expo-camera';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, Touchable, TouchableOpacity, View } from 'react-native';
 
 export default function App() {
   const [permission, requestPermission] = useCameraPermissions();
@@ -19,13 +19,23 @@ export default function App() {
   },[])
 
 
+  const clickPhoto = () => {
+
+  }
+  
   console.log(permission);
+
 
 
 
   return (
     <View style={styles.container}>
     <CameraView style = {styles.camera}/>
+    <View style={styles.buttonContainer}>
+    <TouchableOpacity style={styles.button}>
+      <Text>Touch Meh!</Text>
+    </TouchableOpacity>
+    </View>
       <Text style = {styles.text}>How much pink is too much pink ?!</Text>
       <StatusBar style="auto" />
     </View>
@@ -36,6 +46,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
+    backgroundColor:'black',
   },
   message: {
     textAlign: "center",
